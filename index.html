@@ -7,7 +7,6 @@ import {
   Container,
   Card,
   CardContent,
-  CardMedia,
   Divider,
 } from '@mui/material';
 import {
@@ -18,7 +17,6 @@ import {
   FaAward,
   FaChartLine,
 } from 'react-icons/fa';
-import { useTheme as useAppTheme } from '../context/ThemeContext';
 
 /* ================= DATA ================= */
 const services = [
@@ -56,19 +54,8 @@ const services = [
 
 /* ================= COMPONENT ================= */
 const Landing = () => {
-  const { isDarkMode } = useAppTheme();
-
-  const theme = {
-    primary: '#41e3ff',
-    bg: isDarkMode ? '#090d1f' : '#ffffff',
-    card: isDarkMode ? 'rgba(16,24,40,0.6)' : '#ffffff',
-    text: isDarkMode ? '#ffffff' : '#222',
-    sub: isDarkMode ? '#b5eaff' : '#666',
-    border: isDarkMode ? 'rgba(65,227,255,0.15)' : '#e0e0e0',
-  };
-
   return (
-    <Box sx={{ bgcolor: theme.bg, color: theme.text }}>
+    <Box sx={{ bgcolor: '#ffffff', color: '#222' }}>
 
       {/* ================= HERO ================= */}
       <Box
@@ -76,35 +63,24 @@ const Landing = () => {
           minHeight: '100vh',
           display: 'flex',
           alignItems: 'center',
-          backgroundImage: "url('/new-hero-image.jpg')",
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          position: 'relative',
-          '&::before': {
-            content: '""',
-            position: 'absolute',
-            inset: 0,
-            bgcolor: 'rgba(0,0,0,0.65)',
-          },
+          bgcolor: '#f5f7fa',
         }}
       >
-        <Container sx={{ position: 'relative', zIndex: 1 }}>
-          <Typography
-            variant="h2"
-            sx={{ fontWeight: 800, color: '#fff', mb: 2 }}
-          >
+        <Container>
+          <Typography variant="h3" fontWeight={800} gutterBottom>
             Laboratorium Pengujian Material Konstruksi
           </Typography>
-          <Typography sx={{ color: '#ddd', maxWidth: 600, mb: 4 }}>
-            Pengujian beton, besi, tanah, serta analisis laboratorium dengan
-            standar profesional dan hasil terpercaya.
+
+          <Typography sx={{ color: '#555', maxWidth: 600, mb: 4 }}>
+            Pengujian beton, besi, tanah, serta analisis laboratorium
+            dengan standar profesional dan hasil terpercaya.
           </Typography>
+
           <Button
             variant="contained"
             sx={{
-              bgcolor: theme.primary,
-              color: '#000',
-              fontWeight: 700,
+              bgcolor: '#000',
+              '&:hover': { bgcolor: '#333' },
             }}
           >
             Lihat Layanan
@@ -115,14 +91,14 @@ const Landing = () => {
       {/* ================= SERVICES ================= */}
       <Box sx={{ py: 8 }}>
         <Container>
-          <Typography
-            variant="h3"
-            sx={{ textAlign: 'center', fontWeight: 700, mb: 2 }}
-          >
+          <Typography variant="h4" fontWeight={700} textAlign="center">
             Layanan Kami
           </Typography>
+
           <Typography
-            sx={{ textAlign: 'center', color: theme.sub, mb: 6 }}
+            textAlign="center"
+            color="#666"
+            mb={6}
           >
             Solusi lengkap pengujian material konstruksi
           </Typography>
@@ -133,23 +109,20 @@ const Landing = () => {
                 <Card
                   sx={{
                     height: '100%',
-                    bgcolor: theme.card,
-                    border: `1px solid ${theme.border}`,
                     textAlign: 'center',
-                    p: 3,
+                    border: '1px solid #e0e0e0',
                   }}
                 >
-                  <Box sx={{ color: theme.primary, mb: 2 }}>
-                    {item.icon}
-                  </Box>
                   <CardContent>
-                    <Typography
-                      variant="h6"
-                      sx={{ fontWeight: 700, mb: 1 }}
-                    >
+                    <Box sx={{ mb: 2, color: '#000' }}>
+                      {item.icon}
+                    </Box>
+
+                    <Typography variant="h6" fontWeight={700} gutterBottom>
                       {item.title}
                     </Typography>
-                    <Typography sx={{ color: theme.sub }}>
+
+                    <Typography color="#666">
                       {item.desc}
                     </Typography>
                   </CardContent>
@@ -161,28 +134,20 @@ const Landing = () => {
       </Box>
 
       {/* ================= PROGRAM ================= */}
-      <Box sx={{ py: 8, bgcolor: isDarkMode ? '#070b18' : '#f7f9fc' }}>
+      <Box sx={{ py: 8, bgcolor: '#f9fafb' }}>
         <Container>
-          <Typography
-            variant="h3"
-            sx={{ textAlign: 'center', fontWeight: 700, mb: 6 }}
-          >
+          <Typography variant="h4" fontWeight={700} textAlign="center" mb={4}>
             Program Unggulan
           </Typography>
 
           <Grid container spacing={4}>
             <Grid item xs={12} md={6}>
-              <Card sx={{ bgcolor: theme.card }}>
-                <CardMedia
-                  component="img"
-                  height="220"
-                  image="/concrete-testing.jpg"
-                />
+              <Card>
                 <CardContent>
-                  <Typography variant="h5" fontWeight={700}>
+                  <Typography variant="h6" fontWeight={700}>
                     Pengujian Beton Terpadu
                   </Typography>
-                  <Typography sx={{ color: theme.sub }}>
+                  <Typography color="#666">
                     Uji kuat tekan, slump, dan curing beton sesuai SNI & ASTM.
                   </Typography>
                 </CardContent>
@@ -190,17 +155,12 @@ const Landing = () => {
             </Grid>
 
             <Grid item xs={12} md={6}>
-              <Card sx={{ bgcolor: theme.card }}>
-                <CardMedia
-                  component="img"
-                  height="220"
-                  image="/steel-testing.jpg"
-                />
+              <Card>
                 <CardContent>
-                  <Typography variant="h5" fontWeight={700}>
+                  <Typography variant="h6" fontWeight={700}>
                     Analisis Kekuatan Besi
                   </Typography>
-                  <Typography sx={{ color: theme.sub }}>
+                  <Typography color="#666">
                     Pengujian tarik, kekerasan, dan mutu baja konstruksi.
                   </Typography>
                 </CardContent>
@@ -211,10 +171,10 @@ const Landing = () => {
       </Box>
 
       {/* ================= FOOTER ================= */}
-      <Box sx={{ py: 5 }}>
+      <Box sx={{ py: 4 }}>
         <Container>
-          <Divider sx={{ mb: 3 }} />
-          <Typography sx={{ textAlign: 'center', color: theme.sub }}>
+          <Divider sx={{ mb: 2 }} />
+          <Typography textAlign="center" color="#777">
             © {new Date().getFullYear()} PT Inti Teknologi Indonesia
           </Typography>
         </Container>
