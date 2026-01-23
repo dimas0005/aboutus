@@ -19,9 +19,11 @@
             line-height: 1.6;
         }
 
-        a { text-decoration: none; }
+        a {
+            text-decoration: none;
+        }
 
-        /* HEADER */
+        /* ================= HEADER ================= */
         header {
             padding: 18px 40px;
             display: flex;
@@ -42,9 +44,11 @@
             font-weight: 600;
         }
 
-        nav a:hover { color: #f97316; }
+        nav a:hover {
+            color: #f97316;
+        }
 
-        /* HERO */
+        /* ================= HERO ================= */
         .hero {
             padding: 90px 40px;
             text-align: center;
@@ -57,7 +61,7 @@
         }
 
         .hero p {
-            max-width: 720px;
+            max-width: 700px;
             margin: 0 auto 30px;
             color: #6b7280;
             font-size: 18px;
@@ -78,7 +82,7 @@
             transform: translateY(-2px);
         }
 
-        /* SECTION */
+        /* ================= SECTION ================= */
         .section {
             padding: 80px 40px;
             max-width: 1100px;
@@ -97,7 +101,7 @@
             margin-bottom: 50px;
         }
 
-        /* SERVICES */
+        /* ================= SERVICES ================= */
         .services {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -105,11 +109,11 @@
         }
 
         .service-card {
-            background: #ffffff;
             border: 1px solid #e5e7eb;
             border-radius: 16px;
             padding: 30px;
             text-align: center;
+            background: #ffffff;
             transition: 0.3s;
         }
 
@@ -118,17 +122,7 @@
             transform: translateY(-5px);
         }
 
-        .service-card h4 {
-            margin-bottom: 10px;
-            font-size: 18px;
-        }
-
-        .service-card p {
-            font-size: 14px;
-            color: #6b7280;
-        }
-
-        /* ADVANTAGE */
+        /* ================= ADVANTAGE ================= */
         .advantage {
             background: #f9fafb;
             padding: 80px 40px;
@@ -154,7 +148,7 @@
             color: #f97316;
         }
 
-        /* ANIMATION */
+        /* ================= ANIMATION ================= */
         .animate {
             opacity: 0;
             transform: translateY(40px);
@@ -166,7 +160,7 @@
             transform: translateY(0);
         }
 
-        /* CTA */
+        /* ================= CTA ================= */
         .cta {
             padding: 80px 40px;
             text-align: center;
@@ -188,7 +182,9 @@
         }
 
         @media (max-width: 600px) {
-            .hero h2 { font-size: 30px; }
+            .hero h2 {
+                font-size: 30px;
+            }
         }
     </style>
 </head>
@@ -212,35 +208,20 @@
     <a href="#kontak" class="btn">Hubungi Kami</a>
 </section>
 
-<!-- LAYANAN -->
+<!-- SERVICES -->
 <section class="section" id="layanan">
     <h3>Layanan Kami</h3>
     <p class="subtitle">Solusi lengkap pengujian material konstruksi</p>
 
     <div class="services">
-        <div class="service-card animate">
-            <h4>Pengujian Beton</h4>
-            <p>Uji kuat tekan, slump test, dan curing beton sesuai SNI & ASTM.</p>
-        </div>
-
-        <div class="service-card animate">
-            <h4>Pengujian Besi</h4>
-            <p>Uji tarik, kekerasan, dan mutu baja konstruksi.</p>
-        </div>
-
-        <div class="service-card animate">
-            <h4>Uji Tanah</h4>
-            <p>Analisis karakteristik tanah untuk perencanaan pondasi.</p>
-        </div>
-
-        <div class="service-card animate">
-            <h4>Deteksi & Bor Air</h4>
-            <p>Deteksi air tanah dan pengeboran dengan metode profesional.</p>
-        </div>
+        <div class="service-card animate">Pengujian Beton</div>
+        <div class="service-card animate">Pengujian Besi</div>
+        <div class="service-card animate">Uji Tanah</div>
+        <div class="service-card animate">Deteksi & Bor Air</div>
     </div>
 </section>
 
-<!-- KEUNGGULAN -->
+<!-- ADVANTAGE -->
 <section class="advantage" id="keunggulan">
     <div class="adv-grid">
         <div class="adv-box animate">
@@ -249,15 +230,15 @@
         </div>
         <div class="adv-box animate">
             <h4>Tenaga Ahli</h4>
-            <p>Didukung teknisi dan analis berpengalaman.</p>
+            <p>Didukung teknisi berpengalaman.</p>
         </div>
         <div class="adv-box animate">
             <h4>Peralatan Modern</h4>
-            <p>Menggunakan alat uji terkalibrasi.</p>
+            <p>Alat uji terkalibrasi.</p>
         </div>
         <div class="adv-box animate">
             <h4>Laporan Resmi</h4>
-            <p>Hasil uji lengkap & dapat dipertanggungjawabkan.</p>
+            <p>Hasil uji dapat dipertanggungjawabkan.</p>
         </div>
     </div>
 </section>
@@ -273,9 +254,9 @@
     © 2026 | PT ITI UTAMA – Material & Soil Testing
 </footer>
 
-<!-- JS ANIMATION -->
+<!-- ================= JS ANIMATION ================= -->
 <script>
-    const items = document.querySelectorAll('.animate');
+    const elements = document.querySelectorAll('.animate');
 
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
@@ -285,7 +266,7 @@
         });
     }, { threshold: 0.2 });
 
-    items.forEach(item => observer.observe(item));
+    elements.forEach(el => observer.observe(el));
 </script>
 
 </body>
