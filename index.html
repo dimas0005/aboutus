@@ -82,7 +82,7 @@
             transform: translateY(-2px);
         }
 
-        /* ================= SERVICES ================= */
+        /* ================= SECTION ================= */
         .section {
             padding: 80px 40px;
             max-width: 1100px;
@@ -101,6 +101,7 @@
             margin-bottom: 50px;
         }
 
+        /* ================= SERVICES ================= */
         .services {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -112,22 +113,13 @@
             border-radius: 16px;
             padding: 30px;
             text-align: center;
+            background: #ffffff;
             transition: 0.3s;
         }
 
         .service-card:hover {
             box-shadow: 0 15px 40px rgba(0,0,0,0.08);
             transform: translateY(-5px);
-        }
-
-        .service-card h4 {
-            margin-bottom: 10px;
-            font-size: 18px;
-        }
-
-        .service-card p {
-            color: #6b7280;
-            font-size: 14px;
         }
 
         /* ================= ADVANTAGE ================= */
@@ -156,6 +148,18 @@
             color: #f97316;
         }
 
+        /* ================= ANIMATION ================= */
+        .animate {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: 0.7s ease;
+        }
+
+        .animate.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         /* ================= CTA ================= */
         .cta {
             padding: 80px 40px;
@@ -164,17 +168,11 @@
             color: #ffffff;
         }
 
-        .cta h3 {
-            font-size: 30px;
-            margin-bottom: 15px;
-        }
-
         .cta p {
             color: #d1d5db;
             margin-bottom: 25px;
         }
 
-        /* ================= FOOTER ================= */
         footer {
             padding: 25px;
             text-align: center;
@@ -183,99 +181,93 @@
             border-top: 1px solid #e5e7eb;
         }
 
-        /* ================= RESPONSIVE ================= */
         @media (max-width: 600px) {
             .hero h2 {
                 font-size: 30px;
-            }
-
-            header {
-                flex-direction: column;
-                gap: 10px;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- HEADER -->
-    <header>
-        <h1>PT ITI UTAMA</h1>
-        <nav>
-            <a href="#layanan">Layanan</a>
-            <a href="#keunggulan">Keunggulan</a>
-            <a href="#kontak">Kontak</a>
-        </nav>
-    </header>
+<header>
+    <h1>PT ITI UTAMA</h1>
+    <nav>
+        <a href="#layanan">Layanan</a>
+        <a href="#keunggulan">Keunggulan</a>
+        <a href="#kontak">Kontak</a>
+    </nav>
+</header>
 
-    <!-- HERO -->
-    <section class="hero">
-        <h2>Laboratorium Pengujian Material Konstruksi</h2>
-        <p>
-            Pengujian beton, besi, tanah, serta deteksi dan bor air
-            dengan standar profesional, akurat, dan terpercaya.
-        </p>
-        <a href="#kontak" class="btn">Hubungi Kami</a>
-    </section>
+<section class="hero">
+    <h2>Laboratorium Pengujian Material Konstruksi</h2>
+    <p>
+        Pengujian beton, besi, tanah, serta deteksi dan bor air
+        dengan standar profesional dan hasil terpercaya.
+    </p>
+    <a href="#kontak" class="btn">Hubungi Kami</a>
+</section>
 
-    <!-- SERVICES -->
-    <section class="section" id="layanan">
-        <h3>Layanan Kami</h3>
-        <p class="subtitle">Solusi lengkap untuk kebutuhan pengujian material</p>
+<!-- SERVICES -->
+<section class="section" id="layanan">
+    <h3>Layanan Kami</h3>
+    <p class="subtitle">Solusi lengkap pengujian material konstruksi</p>
 
-        <div class="services">
-            <div class="service-card">
-                <h4>Pengujian Beton</h4>
-                <p>Uji kuat tekan, slump test, curing beton sesuai standar SNI & ASTM.</p>
-            </div>
-            <div class="service-card">
-                <h4>Pengujian Besi</h4>
-                <p>Uji tarik, kekerasan, dan mutu baja konstruksi.</p>
-            </div>
-            <div class="service-card">
-                <h4>Uji Tanah</h4>
-                <p>Analisis karakteristik tanah untuk pondasi bangunan.</p>
-            </div>
-            <div class="service-card">
-                <h4>Deteksi & Bor Air</h4>
-                <p>Deteksi air tanah dan pengeboran dengan metode profesional.</p>
-            </div>
+    <div class="services">
+        <div class="service-card animate">Pengujian Beton</div>
+        <div class="service-card animate">Pengujian Besi</div>
+        <div class="service-card animate">Uji Tanah</div>
+        <div class="service-card animate">Deteksi & Bor Air</div>
+    </div>
+</section>
+
+<!-- ADVANTAGE -->
+<section class="advantage" id="keunggulan">
+    <div class="adv-grid">
+        <div class="adv-box animate">
+            <h4>Akurat & Terstandar</h4>
+            <p>Mengikuti standar SNI & ASTM.</p>
         </div>
-    </section>
-
-    <!-- ADVANTAGE -->
-    <section class="advantage" id="keunggulan">
-        <div class="adv-grid">
-            <div class="adv-box">
-                <h4>Akurat & Terstandar</h4>
-                <p>Pengujian mengikuti standar nasional dan internasional.</p>
-            </div>
-            <div class="adv-box">
-                <h4>Tenaga Ahli</h4>
-                <p>Didukung oleh teknisi dan analis berpengalaman.</p>
-            </div>
-            <div class="adv-box">
-                <h4>Peralatan Modern</h4>
-                <p>Menggunakan alat laboratorium terkini dan terkalibrasi.</p>
-            </div>
-            <div class="adv-box">
-                <h4>Laporan Resmi</h4>
-                <p>Hasil uji lengkap, jelas, dan dapat dipertanggungjawabkan.</p>
-            </div>
+        <div class="adv-box animate">
+            <h4>Tenaga Ahli</h4>
+            <p>Didukung teknisi berpengalaman.</p>
         </div>
-    </section>
+        <div class="adv-box animate">
+            <h4>Peralatan Modern</h4>
+            <p>Alat uji terkalibrasi.</p>
+        </div>
+        <div class="adv-box animate">
+            <h4>Laporan Resmi</h4>
+            <p>Hasil uji dapat dipertanggungjawabkan.</p>
+        </div>
+    </div>
+</section>
 
-    <!-- CTA -->
-    <section class="cta" id="kontak">
-        <h3>Butuh Pengujian Material?</h3>
-        <p>Konsultasikan kebutuhan proyek Anda bersama PT ITI UTAMA</p>
-        <a href="https://wa.me/628xxxxxxxxxx" class="btn">WhatsApp Kami</a>
-    </section>
+<!-- CTA -->
+<section class="cta" id="kontak">
+    <h3>Butuh Pengujian Material?</h3>
+    <p>Konsultasikan proyek Anda bersama PT ITI UTAMA</p>
+    <a href="https://wa.me/628xxxxxxxxxx" class="btn">WhatsApp Kami</a>
+</section>
 
-    <!-- FOOTER -->
-    <footer>
-        © 2026 | PT ITI UTAMA – Material & Soil Testing
-    </footer>
+<footer>
+    © 2026 | PT ITI UTAMA – Material & Soil Testing
+</footer>
+
+<!-- ================= JS ANIMATION ================= -->
+<script>
+    const elements = document.querySelectorAll('.animate');
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+            }
+        });
+    }, { threshold: 0.2 });
+
+    elements.forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
