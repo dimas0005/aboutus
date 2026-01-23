@@ -1,187 +1,281 @@
-import React from 'react';
-import {
-  Box,
-  Typography,
-  Button,
-  Grid,
-  Container,
-  Card,
-  CardContent,
-  Divider,
-} from '@mui/material';
-import {
-  FaBuilding,
-  FaFlask,
-  FaTools,
-  FaHardHat,
-  FaAward,
-  FaChartLine,
-} from 'react-icons/fa';
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PT ITI UTAMA | Laboratorium Pengujian Material</title>
 
-/* ================= DATA ================= */
-const services = [
-  {
-    title: 'Pengujian Beton',
-    desc: 'Uji kuat tekan, slump test, dan kualitas beton sesuai standar SNI & ASTM.',
-    icon: <FaBuilding size={36} />,
-  },
-  {
-    title: 'Pengujian Besi',
-    desc: 'Uji tarik, kekerasan, dan kekuatan material besi konstruksi.',
-    icon: <FaTools size={36} />,
-  },
-  {
-    title: 'Analisis Laboratorium',
-    desc: 'Pengujian material dengan peralatan laboratorium modern.',
-    icon: <FaFlask size={36} />,
-  },
-  {
-    title: 'Konsultasi Teknis',
-    desc: 'Pendampingan teknis oleh tenaga ahli berpengalaman.',
-    icon: <FaHardHat size={36} />,
-  },
-  {
-    title: 'Sertifikasi Material',
-    desc: 'Sertifikat mutu material untuk proyek & tender.',
-    icon: <FaAward size={36} />,
-  },
-  {
-    title: 'Monitoring Kualitas',
-    desc: 'Pengawasan kualitas material selama proyek berjalan.',
-    icon: <FaChartLine size={36} />,
-  },
-];
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
 
-/* ================= COMPONENT ================= */
-const Landing = () => {
-  return (
-    <Box sx={{ bgcolor: '#ffffff', color: '#222' }}>
+        body {
+            background: #ffffff;
+            color: #1f2937;
+            line-height: 1.6;
+        }
 
-      {/* ================= HERO ================= */}
-      <Box
-        sx={{
-          minHeight: '100vh',
-          display: 'flex',
-          alignItems: 'center',
-          bgcolor: '#f5f7fa',
-        }}
-      >
-        <Container>
-          <Typography variant="h3" fontWeight={800} gutterBottom>
-            Laboratorium Pengujian Material Konstruksi
-          </Typography>
+        a {
+            text-decoration: none;
+        }
 
-          <Typography sx={{ color: '#555', maxWidth: 600, mb: 4 }}>
-            Pengujian beton, besi, tanah, serta analisis laboratorium
-            dengan standar profesional dan hasil terpercaya.
-          </Typography>
+        /* ================= HEADER ================= */
+        header {
+            padding: 18px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e5e7eb;
+        }
 
-          <Button
-            variant="contained"
-            sx={{
-              bgcolor: '#000',
-              '&:hover': { bgcolor: '#333' },
-            }}
-          >
-            Lihat Layanan
-          </Button>
-        </Container>
-      </Box>
+        header h1 {
+            font-size: 20px;
+            color: #f97316;
+            font-weight: 700;
+        }
 
-      {/* ================= SERVICES ================= */}
-      <Box sx={{ py: 8 }}>
-        <Container>
-          <Typography variant="h4" fontWeight={700} textAlign="center">
-            Layanan Kami
-          </Typography>
+        nav a {
+            margin-left: 25px;
+            color: #374151;
+            font-weight: 600;
+        }
 
-          <Typography
-            textAlign="center"
-            color="#666"
-            mb={6}
-          >
-            Solusi lengkap pengujian material konstruksi
-          </Typography>
+        nav a:hover {
+            color: #f97316;
+        }
 
-          <Grid container spacing={4}>
-            {services.map((item, i) => (
-              <Grid item xs={12} md={4} key={i}>
-                <Card
-                  sx={{
-                    height: '100%',
-                    textAlign: 'center',
-                    border: '1px solid #e0e0e0',
-                  }}
-                >
-                  <CardContent>
-                    <Box sx={{ mb: 2, color: '#000' }}>
-                      {item.icon}
-                    </Box>
+        /* ================= HERO ================= */
+        .hero {
+            padding: 90px 40px;
+            text-align: center;
+            background: linear-gradient(135deg, #f9fafb, #ffffff);
+        }
 
-                    <Typography variant="h6" fontWeight={700} gutterBottom>
-                      {item.title}
-                    </Typography>
+        .hero h2 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
 
-                    <Typography color="#666">
-                      {item.desc}
-                    </Typography>
-                  </CardContent>
-                </Card>
-              </Grid>
-            ))}
-          </Grid>
-        </Container>
-      </Box>
+        .hero p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: #6b7280;
+            font-size: 18px;
+        }
 
-      {/* ================= PROGRAM ================= */}
-      <Box sx={{ py: 8, bgcolor: '#f9fafb' }}>
-        <Container>
-          <Typography variant="h4" fontWeight={700} textAlign="center" mb={4}>
-            Program Unggulan
-          </Typography>
+        .btn {
+            display: inline-block;
+            background: #f97316;
+            color: #ffffff;
+            padding: 14px 28px;
+            border-radius: 10px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
 
-          <Grid container spacing={4}>
-            <Grid item xs={12} md={6}>
-              <Card>
-                <CardContent>
-                  <Typography variant="h6" fontWeight={700}>
-                    Pengujian Beton Terpadu
-                  </Typography>
-                  <Typography color="#666">
-                    Uji kuat tekan, slump, dan curing beton sesuai SNI & ASTM.
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Grid>
+        .btn:hover {
+            background: #ea580c;
+            transform: translateY(-2px);
+        }
 
-            <Grid item xs={12} md={6}>
-              <Card>
-                <CardContent>
-                  <Typography variant="h6" fontWeight={700}>
-                    Analisis Kekuatan Besi
-                  </Typography>
-                  <Typography color="#666">
-                    Pengujian tarik, kekerasan, dan mutu baja konstruksi.
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Grid>
-          </Grid>
-        </Container>
-      </Box>
+        /* ================= SERVICES ================= */
+        .section {
+            padding: 80px 40px;
+            max-width: 1100px;
+            margin: auto;
+        }
 
-      {/* ================= FOOTER ================= */}
-      <Box sx={{ py: 4 }}>
-        <Container>
-          <Divider sx={{ mb: 2 }} />
-          <Typography textAlign="center" color="#777">
-            © {new Date().getFullYear()} PT Inti Teknologi Indonesia
-          </Typography>
-        </Container>
-      </Box>
+        .section h3 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
 
-    </Box>
-  );
-};
+        .section p.subtitle {
+            text-align: center;
+            color: #6b7280;
+            margin-bottom: 50px;
+        }
 
-export default Landing;
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .service-card:hover {
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            transform: translateY(-5px);
+        }
+
+        .service-card h4 {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .service-card p {
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        /* ================= ADVANTAGE ================= */
+        .advantage {
+            background: #f9fafb;
+            padding: 80px 40px;
+        }
+
+        .adv-grid {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 30px;
+        }
+
+        .adv-box {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 30px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .adv-box h4 {
+            margin-bottom: 10px;
+            color: #f97316;
+        }
+
+        /* ================= CTA ================= */
+        .cta {
+            padding: 80px 40px;
+            text-align: center;
+            background: #111827;
+            color: #ffffff;
+        }
+
+        .cta h3 {
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            color: #d1d5db;
+            margin-bottom: 25px;
+        }
+
+        /* ================= FOOTER ================= */
+        footer {
+            padding: 25px;
+            text-align: center;
+            font-size: 13px;
+            color: #6b7280;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        /* ================= RESPONSIVE ================= */
+        @media (max-width: 600px) {
+            .hero h2 {
+                font-size: 30px;
+            }
+
+            header {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <h1>PT ITI UTAMA</h1>
+        <nav>
+            <a href="#layanan">Layanan</a>
+            <a href="#keunggulan">Keunggulan</a>
+            <a href="#kontak">Kontak</a>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <h2>Laboratorium Pengujian Material Konstruksi</h2>
+        <p>
+            Pengujian beton, besi, tanah, serta deteksi dan bor air
+            dengan standar profesional, akurat, dan terpercaya.
+        </p>
+        <a href="#kontak" class="btn">Hubungi Kami</a>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="section" id="layanan">
+        <h3>Layanan Kami</h3>
+        <p class="subtitle">Solusi lengkap untuk kebutuhan pengujian material</p>
+
+        <div class="services">
+            <div class="service-card">
+                <h4>Pengujian Beton</h4>
+                <p>Uji kuat tekan, slump test, curing beton sesuai standar SNI & ASTM.</p>
+            </div>
+            <div class="service-card">
+                <h4>Pengujian Besi</h4>
+                <p>Uji tarik, kekerasan, dan mutu baja konstruksi.</p>
+            </div>
+            <div class="service-card">
+                <h4>Uji Tanah</h4>
+                <p>Analisis karakteristik tanah untuk pondasi bangunan.</p>
+            </div>
+            <div class="service-card">
+                <h4>Deteksi & Bor Air</h4>
+                <p>Deteksi air tanah dan pengeboran dengan metode profesional.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ADVANTAGE -->
+    <section class="advantage" id="keunggulan">
+        <div class="adv-grid">
+            <div class="adv-box">
+                <h4>Akurat & Terstandar</h4>
+                <p>Pengujian mengikuti standar nasional dan internasional.</p>
+            </div>
+            <div class="adv-box">
+                <h4>Tenaga Ahli</h4>
+                <p>Didukung oleh teknisi dan analis berpengalaman.</p>
+            </div>
+            <div class="adv-box">
+                <h4>Peralatan Modern</h4>
+                <p>Menggunakan alat laboratorium terkini dan terkalibrasi.</p>
+            </div>
+            <div class="adv-box">
+                <h4>Laporan Resmi</h4>
+                <p>Hasil uji lengkap, jelas, dan dapat dipertanggungjawabkan.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta" id="kontak">
+        <h3>Butuh Pengujian Material?</h3>
+        <p>Konsultasikan kebutuhan proyek Anda bersama PT ITI UTAMA</p>
+        <a href="https://wa.me/628xxxxxxxxxx" class="btn">WhatsApp Kami</a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        © 2026 | PT ITI UTAMA – Material & Soil Testing
+    </footer>
+
+</body>
+</html>
