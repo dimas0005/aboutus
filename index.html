@@ -19,9 +19,7 @@
             line-height: 1.6;
         }
 
-        a {
-            text-decoration: none;
-        }
+        a { text-decoration: none; }
 
         /* ================= HEADER ================= */
         header {
@@ -44,9 +42,7 @@
             font-weight: 600;
         }
 
-        nav a:hover {
-            color: #f97316;
-        }
+        nav a:hover { color: #f97316; }
 
         /* ================= HERO ================= */
         .hero {
@@ -95,7 +91,7 @@
             margin-bottom: 10px;
         }
 
-        .section p.subtitle {
+        .subtitle {
             text-align: center;
             color: #6b7280;
             margin-bottom: 50px;
@@ -106,6 +102,13 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .services-center {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
         }
 
         .service-card {
@@ -115,6 +118,7 @@
             text-align: center;
             background: #ffffff;
             transition: 0.3s;
+            min-width: 240px;
         }
 
         .service-card:hover {
@@ -182,9 +186,7 @@
         }
 
         @media (max-width: 600px) {
-            .hero h2 {
-                font-size: 30px;
-            }
+            .hero h2 { font-size: 30px; }
         }
     </style>
 </head>
@@ -213,11 +215,20 @@
     <h3>Layanan Kami</h3>
     <p class="subtitle">Solusi lengkap pengujian material konstruksi</p>
 
+    <!-- Baris atas -->
     <div class="services">
         <div class="service-card animate">Pengujian Beton</div>
         <div class="service-card animate">Pengujian Besi</div>
-        <div class="service-card animate">Uji Tanah</div>
+    </div>
+
+    <!-- Tengah -->
+    <div class="services-center">
         <div class="service-card animate">Deteksi & Bor Air</div>
+    </div>
+
+    <!-- Bawah -->
+    <div class="services">
+        <div class="service-card animate">Uji Tanah</div>
     </div>
 </section>
 
@@ -254,7 +265,6 @@
     © 2026 | PT ITI UTAMA – Material & Soil Testing
 </footer>
 
-<!-- ================= JS ANIMATION ================= -->
 <script>
     const elements = document.querySelectorAll('.animate');
 
