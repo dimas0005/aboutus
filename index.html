@@ -19,8 +19,11 @@
             line-height: 1.6;
         }
 
-        a { text-decoration: none; }
+        a {
+            text-decoration: none;
+        }
 
+        /* ================= HEADER ================= */
         header {
             padding: 18px 40px;
             display: flex;
@@ -41,8 +44,11 @@
             font-weight: 600;
         }
 
-        nav a:hover { color: #f97316; }
+        nav a:hover {
+            color: #f97316;
+        }
 
+        /* ================= HERO ================= */
         .hero {
             padding: 90px 40px;
             text-align: center;
@@ -76,6 +82,7 @@
             transform: translateY(-2px);
         }
 
+        /* ================= SECTION ================= */
         .section {
             padding: 80px 40px;
             max-width: 1100px;
@@ -88,7 +95,7 @@
             margin-bottom: 10px;
         }
 
-        .subtitle {
+        .section p.subtitle {
             text-align: center;
             color: #6b7280;
             margin-bottom: 50px;
@@ -99,14 +106,6 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 30px;
-            margin-bottom: 30px;
-        }
-
-        /* khusus item tengah */
-        .service-center {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 30px;
         }
 
         .service-card {
@@ -116,7 +115,6 @@
             text-align: center;
             background: #ffffff;
             transition: 0.3s;
-            min-width: 240px;
         }
 
         .service-card:hover {
@@ -124,6 +122,7 @@
             transform: translateY(-5px);
         }
 
+        /* ================= ADVANTAGE ================= */
         .advantage {
             background: #f9fafb;
             padding: 80px 40px;
@@ -149,6 +148,7 @@
             color: #f97316;
         }
 
+        /* ================= ANIMATION ================= */
         .animate {
             opacity: 0;
             transform: translateY(40px);
@@ -160,6 +160,7 @@
             transform: translateY(0);
         }
 
+        /* ================= CTA ================= */
         .cta {
             padding: 80px 40px;
             text-align: center;
@@ -181,7 +182,9 @@
         }
 
         @media (max-width: 600px) {
-            .hero h2 { font-size: 30px; }
+            .hero h2 {
+                font-size: 30px;
+            }
         }
     </style>
 </head>
@@ -210,23 +213,15 @@
     <h3>Layanan Kami</h3>
     <p class="subtitle">Solusi lengkap pengujian material konstruksi</p>
 
-    <!-- Baris atas -->
     <div class="services">
         <div class="service-card animate">Pengujian Beton</div>
         <div class="service-card animate">Pengujian Besi</div>
-    </div>
-
-    <!-- Tengah (DETeksi & Bor Air) -->
-    <div class="service-center">
-        <div class="service-card animate">Deteksi & Bor Air</div>
-    </div>
-
-    <!-- Baris bawah -->
-    <div class="services">
         <div class="service-card animate">Uji Tanah</div>
+        <div class="service-card animate">Deteksi & Bor Air</div>
     </div>
 </section>
 
+<!-- ADVANTAGE -->
 <section class="advantage" id="keunggulan">
     <div class="adv-grid">
         <div class="adv-box animate">
@@ -248,6 +243,7 @@
     </div>
 </section>
 
+<!-- CTA -->
 <section class="cta" id="kontak">
     <h3>Butuh Pengujian Material?</h3>
     <p>Konsultasikan proyek Anda bersama PT ITI UTAMA</p>
@@ -258,6 +254,7 @@
     © 2026 | PT ITI UTAMA – Material & Soil Testing
 </footer>
 
+<!-- ================= JS ANIMATION ================= -->
 <script>
     const elements = document.querySelectorAll('.animate');
 
