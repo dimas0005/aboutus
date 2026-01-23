@@ -6,22 +6,30 @@ import {
   Grid,
   Container,
   Card,
-  CardContent
+  CardContent,
+  CardMedia,
+  Divider,
 } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
-import { FaBuilding, FaTools, FaFlask } from 'react-icons/fa';
+import {
+  FaBuilding,
+  FaFlask,
+  FaTools,
+  FaHardHat,
+  FaAward,
+  FaChartLine,
+} from 'react-icons/fa';
 import { useTheme as useAppTheme } from '../context/ThemeContext';
 
-/* DATA SERVICES */
+/* ================= DATA ================= */
 const services = [
   {
     title: 'Pengujian Beton',
-    desc: 'Uji kuat tekan, slump test, dan kualitas beton sesuai standar.',
+    desc: 'Uji kuat tekan, slump test, dan kualitas beton sesuai standar SNI & ASTM.',
     icon: <FaBuilding size={36} />,
   },
   {
     title: 'Pengujian Besi',
-    desc: 'Uji tarik, kekerasan, dan kekuatan material besi.',
+    desc: 'Uji tarik, kekerasan, dan kekuatan material besi konstruksi.',
     icon: <FaTools size={36} />,
   },
   {
@@ -29,102 +37,120 @@ const services = [
     desc: 'Pengujian material dengan peralatan laboratorium modern.',
     icon: <FaFlask size={36} />,
   },
+  {
+    title: 'Konsultasi Teknis',
+    desc: 'Pendampingan teknis oleh tenaga ahli berpengalaman.',
+    icon: <FaHardHat size={36} />,
+  },
+  {
+    title: 'Sertifikasi Material',
+    desc: 'Sertifikat mutu material untuk proyek & tender.',
+    icon: <FaAward size={36} />,
+  },
+  {
+    title: 'Monitoring Kualitas',
+    desc: 'Pengawasan kualitas material selama proyek berjalan.',
+    icon: <FaChartLine size={36} />,
+  },
 ];
 
+/* ================= COMPONENT ================= */
 const Landing = () => {
-  const navigate = useNavigate();
   const { isDarkMode } = useAppTheme();
 
-  const themeColors = {
+  const theme = {
     primary: '#41e3ff',
-    background: isDarkMode ? '#090d1f' : '#ffffff',
-    cardBg: isDarkMode ? 'rgba(16,24,40,0.6)' : '#ffffff',
-    text: isDarkMode ? '#ffffff' : '#333',
-    subText: isDarkMode ? '#b5eaff' : '#666',
+    bg: isDarkMode ? '#090d1f' : '#ffffff',
+    card: isDarkMode ? 'rgba(16,24,40,0.6)' : '#ffffff',
+    text: isDarkMode ? '#ffffff' : '#222',
+    sub: isDarkMode ? '#b5eaff' : '#666',
+    border: isDarkMode ? 'rgba(65,227,255,0.15)' : '#e0e0e0',
   };
 
   return (
-    <Box sx={{ backgroundColor: themeColors.background, color: themeColors.text }}>
+    <Box sx={{ bgcolor: theme.bg, color: theme.text }}>
 
-      {/* HEADER */}
-      <Box sx={{ py: 2, borderBottom: '1px solid rgba(0,0,0,0.1)' }}>
-        <Container
-          maxWidth="lg"
-          sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
-        >
-          <Typography fontWeight={700} color={themeColors.primary}>
-            INTI TEKNOLOGI
-          </Typography>
-
-          <Button variant="contained" onClick={() => navigate('/login')}>
-            Masuk
-          </Button>
-        </Container>
-      </Box>
-
-      {/* HERO */}
+      {/* ================= HERO ================= */}
       <Box
         sx={{
-          minHeight: '90vh',
+          minHeight: '100vh',
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'center',
-          textAlign: 'center',
-          background: 'linear-gradient(135deg, #0f172a, #020617)',
+          backgroundImage: "url('/new-hero-image.jpg')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          position: 'relative',
+          '&::before': {
+            content: '""',
+            position: 'absolute',
+            inset: 0,
+            bgcolor: 'rgba(0,0,0,0.65)',
+          },
         }}
       >
-        <Container maxWidth="md">
-          <Typography variant="h3" fontWeight={800} color="#fff" mb={2}>
-            Pengujian Material Konstruksi
+        <Container sx={{ position: 'relative', zIndex: 1 }}>
+          <Typography
+            variant="h2"
+            sx={{ fontWeight: 800, color: '#fff', mb: 2 }}
+          >
+            Laboratorium Pengujian Material Konstruksi
           </Typography>
-
-          <Typography color="rgba(255,255,255,0.85)" mb={4}>
-            Layanan pengujian beton, besi, dan material konstruksi
-            dengan standar profesional dan hasil terpercaya.
+          <Typography sx={{ color: '#ddd', maxWidth: 600, mb: 4 }}>
+            Pengujian beton, besi, tanah, serta analisis laboratorium dengan
+            standar profesional dan hasil terpercaya.
           </Typography>
-
-          <Button size="large" variant="contained" onClick={() => navigate('/login')}>
-            Mulai Sekarang
+          <Button
+            variant="contained"
+            sx={{
+              bgcolor: theme.primary,
+              color: '#000',
+              fontWeight: 700,
+            }}
+          >
+            Lihat Layanan
           </Button>
         </Container>
       </Box>
 
-      {/* SERVICES */}
+      {/* ================= SERVICES ================= */}
       <Box sx={{ py: 8 }}>
-        <Container maxWidth="lg">
+        <Container>
           <Typography
-            variant="h4"
-            fontWeight={700}
-            textAlign="center"
-            mb={6}
-            color={themeColors.primary}
+            variant="h3"
+            sx={{ textAlign: 'center', fontWeight: 700, mb: 2 }}
           >
             Layanan Kami
           </Typography>
+          <Typography
+            sx={{ textAlign: 'center', color: theme.sub, mb: 6 }}
+          >
+            Solusi lengkap pengujian material konstruksi
+          </Typography>
 
           <Grid container spacing={4}>
-            {services.map((service, index) => (
-              <Grid item xs={12} md={4} key={index}>
+            {services.map((item, i) => (
+              <Grid item xs={12} md={4} key={i}>
                 <Card
                   sx={{
                     height: '100%',
-                    backgroundColor: themeColors.cardBg,
-                    borderRadius: 4,
+                    bgcolor: theme.card,
+                    border: `1px solid ${theme.border}`,
                     textAlign: 'center',
                     p: 3,
                   }}
                 >
-                  <Box sx={{ color: themeColors.primary, mb: 2 }}>
-                    {service.icon}
+                  <Box sx={{ color: theme.primary, mb: 2 }}>
+                    {item.icon}
                   </Box>
-
                   <CardContent>
-                    <Typography variant="h6" fontWeight={700} mb={1}>
-                      {service.title}
+                    <Typography
+                      variant="h6"
+                      sx={{ fontWeight: 700, mb: 1 }}
+                    >
+                      {item.title}
                     </Typography>
-
-                    <Typography color={themeColors.subText}>
-                      {service.desc}
+                    <Typography sx={{ color: theme.sub }}>
+                      {item.desc}
                     </Typography>
                   </CardContent>
                 </Card>
@@ -134,17 +160,64 @@ const Landing = () => {
         </Container>
       </Box>
 
-      {/* FOOTER */}
-      <Box
-        sx={{
-          py: 4,
-          borderTop: '1px solid rgba(0,0,0,0.1)',
-          textAlign: 'center',
-        }}
-      >
-        <Typography color={themeColors.subText}>
-          © {new Date().getFullYear()} PT Inti Teknologi Indonesia
-        </Typography>
+      {/* ================= PROGRAM ================= */}
+      <Box sx={{ py: 8, bgcolor: isDarkMode ? '#070b18' : '#f7f9fc' }}>
+        <Container>
+          <Typography
+            variant="h3"
+            sx={{ textAlign: 'center', fontWeight: 700, mb: 6 }}
+          >
+            Program Unggulan
+          </Typography>
+
+          <Grid container spacing={4}>
+            <Grid item xs={12} md={6}>
+              <Card sx={{ bgcolor: theme.card }}>
+                <CardMedia
+                  component="img"
+                  height="220"
+                  image="/concrete-testing.jpg"
+                />
+                <CardContent>
+                  <Typography variant="h5" fontWeight={700}>
+                    Pengujian Beton Terpadu
+                  </Typography>
+                  <Typography sx={{ color: theme.sub }}>
+                    Uji kuat tekan, slump, dan curing beton sesuai SNI & ASTM.
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Grid>
+
+            <Grid item xs={12} md={6}>
+              <Card sx={{ bgcolor: theme.card }}>
+                <CardMedia
+                  component="img"
+                  height="220"
+                  image="/steel-testing.jpg"
+                />
+                <CardContent>
+                  <Typography variant="h5" fontWeight={700}>
+                    Analisis Kekuatan Besi
+                  </Typography>
+                  <Typography sx={{ color: theme.sub }}>
+                    Pengujian tarik, kekerasan, dan mutu baja konstruksi.
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Grid>
+          </Grid>
+        </Container>
+      </Box>
+
+      {/* ================= FOOTER ================= */}
+      <Box sx={{ py: 5 }}>
+        <Container>
+          <Divider sx={{ mb: 3 }} />
+          <Typography sx={{ textAlign: 'center', color: theme.sub }}>
+            © {new Date().getFullYear()} PT Inti Teknologi Indonesia
+          </Typography>
+        </Container>
       </Box>
 
     </Box>
