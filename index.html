@@ -19,11 +19,6 @@
             line-height: 1.6;
         }
 
-        a {
-            text-decoration: none;
-        }
-
-        /* ================= HEADER ================= */
         header {
             padding: 18px 40px;
             display: flex;
@@ -42,13 +37,13 @@
             margin-left: 25px;
             color: #374151;
             font-weight: 600;
+            text-decoration: none;
         }
 
         nav a:hover {
             color: #f97316;
         }
 
-        /* ================= HERO ================= */
         .hero {
             padding: 90px 40px;
             text-align: center;
@@ -75,6 +70,7 @@
             border-radius: 10px;
             font-weight: bold;
             transition: 0.3s;
+            text-decoration: none;
         }
 
         .btn:hover {
@@ -82,7 +78,6 @@
             transform: translateY(-2px);
         }
 
-        /* ================= SECTION ================= */
         .section {
             padding: 80px 40px;
             max-width: 1100px;
@@ -101,7 +96,6 @@
             margin-bottom: 50px;
         }
 
-        /* ================= SERVICES ================= */
         .services {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -122,7 +116,6 @@
             transform: translateY(-5px);
         }
 
-        /* ================= ADVANTAGE ================= */
         .advantage {
             background: #f9fafb;
             padding: 80px 40px;
@@ -148,7 +141,7 @@
             color: #f97316;
         }
 
-        /* ================= ANIMATION ================= */
+        /* ANIMATION */
         .animate {
             opacity: 0;
             transform: translateY(40px);
@@ -160,7 +153,6 @@
             transform: translateY(0);
         }
 
-        /* ================= CTA ================= */
         .cta {
             padding: 80px 40px;
             text-align: center;
@@ -214,10 +206,26 @@
     <p class="subtitle">Solusi lengkap pengujian material konstruksi</p>
 
     <div class="services">
-        <div class="service-card animate">Pengujian Beton</div>
-        <div class="service-card animate">Pengujian Besi</div>
-        <div class="service-card animate">Uji Tanah</div>
-        <div class="service-card animate">Deteksi & Bor Air</div>
+        <div class="service-card animate">
+            <h4>Pengujian Beton</h4>
+            <p>Uji kuat tekan, slump test, dan mutu beton sesuai SNI & ASTM.</p>
+        </div>
+
+        <div class="service-card animate">
+            <h4>Pengujian Besi</h4>
+            <p>Uji tarik, kekerasan, dan kualitas baja konstruksi.</p>
+        </div>
+
+        <!-- DETEKSI AIR DI BAWAH BESI -->
+        <div class="service-card animate">
+            <h4>Deteksi & Bor Air</h4>
+            <p>Deteksi air tanah dan pengeboran dengan metode profesional.</p>
+        </div>
+
+        <div class="service-card animate">
+            <h4>Uji Tanah</h4>
+            <p>Analisis karakteristik tanah untuk pondasi bangunan.</p>
+        </div>
     </div>
 </section>
 
@@ -238,12 +246,11 @@
         </div>
         <div class="adv-box animate">
             <h4>Laporan Resmi</h4>
-            <p>Hasil uji dapat dipertanggungjawabkan.</p>
+            <p>Hasil uji valid & dapat dipertanggungjawabkan.</p>
         </div>
     </div>
 </section>
 
-<!-- CTA -->
 <section class="cta" id="kontak">
     <h3>Butuh Pengujian Material?</h3>
     <p>Konsultasikan proyek Anda bersama PT ITI UTAMA</p>
@@ -254,7 +261,6 @@
     © 2026 | PT ITI UTAMA – Material & Soil Testing
 </footer>
 
-<!-- ================= JS ANIMATION ================= -->
 <script>
     const elements = document.querySelectorAll('.animate');
 
