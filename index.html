@@ -37,7 +37,24 @@
             color: #f97316;
             font-weight: 700;
         }
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
 
+.logo img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.logo h1 {
+    font-size: 20px;
+    color: #f97316;
+    font-weight: 700;
+    margin: 0;
+}
         nav a {
             margin-left: 25px;
             color: #374151;
@@ -226,12 +243,18 @@ box-shadow:0 10px 25px rgba(0,0,0,.2);
 <body>
 
 <header>
-    <h1>PT ITI UTAMA</h1>
+
+    <div class="logo">
+        <img src="img1.jpeg" alt="Logo PT ITI UTAMA">
+        <h1>PT ITI UTAMA</h1>
+    </div>
+
     <nav>
         <a href="#layanan">Layanan</a>
         <a href="#keunggulan">Keunggulan</a>
         <a href="#kontak">Kontak</a>
     </nav>
+
 </header>
 
 <section class="hero">
